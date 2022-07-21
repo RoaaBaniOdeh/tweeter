@@ -20,7 +20,13 @@ const deletePost =function (){
     tweeter.removePostK(postId) 
     renderer.renderPostsk(tweeter.getPostsK())
 }
-
+const deletecomment =function (){
+  // let commentId = $(this).closest(".posts").find(".comments").data().id
+  let commentId = $(this).closest(".comment").data().id
+   console.log(commentId)
+  tweeter.removeCommentk(commentId) 
+  renderer.renderPostsk(tweeter.getPostsK())
+}
 /*const comment = function () {
   const value =  $(this).find("#input-comment").val();//$("#input-comment").val()
    tweeter.addCommentk(value) 
@@ -34,8 +40,8 @@ const comment = function () {
    tweeter.addCommentk(postId,value)
    renderer.renderPostsk(tweeter.getPostsK())
 }
-$("body").on("click", "#post",post);
-$("body").on("click", ".delete",deletePost());
-$("body").on("click", ".comments",comment());
-
+$("body").on("click", ".post",post);
+$("body").on("click", ".delete",deletePost);
+$("body").on("click", ".comments",comment);
+$("body").on("click", ".delete-comment",deletecomment);
 
