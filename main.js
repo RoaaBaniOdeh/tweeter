@@ -6,7 +6,7 @@ renderer.renderPostsk(tweeter.getPostsK())
 
 
 
-  const post = function () {
+  const addpost = function () {
     const value =  $("#input").val()
     $("#input").empty()
      tweeter.addPostK(value) 
@@ -22,9 +22,11 @@ const deletePost =function (){
 }
 const deletecomment =function (){
   // let commentId = $(this).closest(".posts").find(".comments").data().id
-  let commentId = $(this).closest(".comment").data().id
+  let commentId = $(this).closest("div").find(".comments").data().id
    console.log(commentId)
-  tweeter.removeCommentk(commentId) 
+   let postId=$(this).closest(".post").attr('id')
+   console.log(postId)
+  tweeter.removeCommentk(postId,commentId) 
   renderer.renderPostsk(tweeter.getPostsK())
 }
 
@@ -36,7 +38,7 @@ const comment = function () {
    tweeter.addCommentk(postId,value)
    renderer.renderPostsk(tweeter.getPostsK())
 }
-$("body").on("click", ".post",post);
+$("body").on("click", "#post",addpost);
 $("body").on("click", ".delete",deletePost);
 $("body").on("click", ".comment",comment);
 $("body").on("click", ".delete-comment",deletecomment);
