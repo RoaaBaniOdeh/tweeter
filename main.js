@@ -27,11 +27,7 @@ const deletecomment =function (){
   tweeter.removeCommentk(commentId) 
   renderer.renderPostsk(tweeter.getPostsK())
 }
-/*const comment = function () {
-  const value =  $(this).find("#input-comment").val();//$("#input-comment").val()
-   tweeter.addCommentk(value) 
-   renderer.renderPostsk(tweeter.getPostsK())
-}*/
+
 
 const comment = function () {
 	let postId=$(this).closest('div').data().id
@@ -42,6 +38,6 @@ const comment = function () {
 }
 $("body").on("click", ".post",post);
 $("body").on("click", ".delete",deletePost);
-$("body").on("click", ".comments",comment);
+$("body").on("click", ".comment",comment);
 $("body").on("click", ".delete-comment",deletecomment);
 
